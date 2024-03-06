@@ -24,6 +24,7 @@ import axios from "axios";
 import { useAuth } from "../contexts/AuthContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 function Copyright(props) {
   return (
@@ -169,6 +170,8 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
+            <NavBar />
+
       <Container component="main" maxWidth="xs">
         <CssBaseline />
 

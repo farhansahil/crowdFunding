@@ -63,7 +63,8 @@ function CampaignCard(props) {
     <>
       <Card
         sx={{
-          //   height: "100%" -- purpose un-identified.
+          width: 300, 
+    height: 400, 
           display: "flex",
           flexDirection: "column",
         }}
@@ -73,8 +74,7 @@ function CampaignCard(props) {
           component="img"
           sx={
             {
-              // 16:9
-              // pt: "56.25%", -- by this, takes large space for card.
+              height: 150
             }
           }
           image={bannerUrl}
@@ -100,9 +100,7 @@ function CampaignCard(props) {
               >
                 {campaignStatus}
               </Typography>
-              <IconButton>
-                <ShareIcon size="small" />
-              </IconButton>
+            
             </Stack>
 
             <Typography gutterBottom variant="h5" component="h2">

@@ -26,9 +26,11 @@ import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { FormControl, Input, InputLabel } from "@mui/material";
+import NavBar from "../components/NavBar";
 
 function Copyright(props) {
   return (
+    <>
     <Typography
       variant="body2"
       color="text.secondary"
@@ -42,6 +44,7 @@ function Copyright(props) {
       {new Date().getFullYear()}
       {"."}
     </Typography>
+    </>
   );
 }
 
@@ -164,7 +167,10 @@ export default function SignIn() {
   };
 
   return (
+    
     <ThemeProvider theme={theme}>
+        <NavBar />
+
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

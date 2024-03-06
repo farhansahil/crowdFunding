@@ -20,7 +20,6 @@ import {
 
 // local imports..
 import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import CampaignCard from "../components/CampaignCard";
 
 // service imports..
@@ -63,18 +62,14 @@ function HomePage() {
         component="main"
         sx={{ mt: 8, mb: 2 }}
         justifyContent="center"
-        maxWidth="md"
-      >
+        fullWidth      >
         <Box sx={{ mb: 2 }}>
           <Typography variant="h2" component="h1" gutterBottom>
-            🧑‍🤝‍🧑 Crowd Help :💰
+            Welcome to CrowdFunding
           </Typography>
-          <Typography variant="h5" component="h2" gutterBottom>
-            {"Get Help from Crowd..!!"}
-            {" Raise a campaign to help the needy."}
-          </Typography>
-          <Typography variant="body1">Welcome 👋 to the community.</Typography>
-          <Typography variant="body1">[ONLY] Core functionalities done 🚧. More features on the way..!! 🏃 </Typography>
+         
+          <Typography variant="body1">Welcome to our crowdfunding platform, where ideas flourish and dreams find wings. Whether you're an entrepreneur with a groundbreaking product, a visionary artist seeking support for your next masterpiece, or a passionate advocate for social change, our platform provides the perfect launchpad for your endeavors. With the power of collective contributions, we believe in democratizing funding, enabling individuals from all walks of life to support projects they believe in. Join our vibrant community today, and together, let's turn aspirations into achievements, one pledge at a time</Typography>
+        
         </Box>
         <Box sx={{ mt: 4, mb: 2 }}>
           <Stack>
@@ -92,11 +87,11 @@ function HomePage() {
                   Top {campaignsList.length} recent campaigns..
                 </Typography>
               </Box>
-              {/* <Button onClick={() => navigate("/active-campaigns")}>
+              <Button onClick={() => navigate("/active-campaigns")}>
                 View more
-              </Button> */}
+              </Button>
             </Stack>
-            <Container sx={{ py: 2 }} maxWidth="md">
+            <Container sx={{ py: 2 }} fullWidth>
               {/* End hero unit */}
               {/* load as long as data is not fetched. */}
               {campaignsList.length == 0 && (
@@ -113,7 +108,6 @@ function HomePage() {
           </Stack>
         </Box>
       </Container>
-      <Footer />
     </Box>
   );
 }

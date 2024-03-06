@@ -10,15 +10,17 @@ import {
   Button,
   Box,
   InputBase,
+  Grid,
   Menu,
   MenuItem,
+  IconButton ,
 } from "@mui/material";
-import StorefrontIcon from "@mui/icons-material/Storefront";
+import { Add as AddIcon, AccountBalanceWallet as AccountBalanceWalletIcon, Storefront as StorefrontIcon } from '@mui/icons-material';
+
 import EmailIcon from "@mui/icons-material/Email";
 import BadgeUnstyled from "@mui/base/BadgeUnstyled";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import PersonIcon from "@mui/icons-material/Person";
 import CreateIcon from "@mui/icons-material/Create";
@@ -100,7 +102,7 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="sticky" sx={{ bgcolor: "#EFEFEF" }}>
+    <AppBar position="sticky" sx={{ color: "inherit", bgcolor: 'gray' }}>
       <StyledToolbar>
         <Typography
           variant="h6"
@@ -108,11 +110,13 @@ function NavBar() {
             display: {
               xs: "none",
               sm: "block",
-              color: "#717171",
+              color: "#fff",
             },
+            cursor: "pointer",
           }}
+          onClick={() => navigate("/")}
         >
-          CrowdHelp
+          CrowdFunding
         </Typography>
         <StorefrontIcon
           sx={{
@@ -133,8 +137,7 @@ function NavBar() {
               type="submit"
               fullWidth
               variant="outlined"
-              sx={{ mt: 3, mb: 2 }}
-              startIcon={<CreateIcon />}
+              sx={{ mt: 3, mb: 2, color: "#fff" }}
               onClick={() => navigate("/create-campaign")}
             >
               Create Campaign
@@ -147,6 +150,7 @@ function NavBar() {
                 endIcon={<ExpandMoreIcon />}
                 onClick={() => setProfileMenuDisplayStatus(true)}
                 color="primary"
+                sx={{ color: "#fff" }}
               >
                 {wallet.account.substr(0, 10) + "..."}
               </Button>
@@ -157,7 +161,7 @@ function NavBar() {
                 variant="text"
                 loading={wallet.status === "connecting"}
                 loadingIndicator="Connecting..."
-                // sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, color: "#fff" }}
                 endIcon={<AccountBalanceWalletIcon />}
                 onClick={() => wallet.connect()}
               >
@@ -197,6 +201,8 @@ function NavBar() {
         </MenuItem>
       </Menu>
     </AppBar>
+
+
   );
 }
 

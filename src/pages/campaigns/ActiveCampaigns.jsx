@@ -11,7 +11,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 // local imports
 import CampaignCard from "../../components/CampaignCard";
-import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 
 // service imports..
@@ -89,7 +88,6 @@ function ActiveCampaigns() {
         </Container>
       </main>
 
-      <Footer />
     </>
   );
 }
