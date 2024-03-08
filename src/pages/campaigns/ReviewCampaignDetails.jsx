@@ -44,6 +44,14 @@ const StyledTypographyTitle = styled(Typography)(({ theme }) => ({
   marginTop: theme.spacing(2),
 }));
 
+
+const fetchDonators = async () => {
+  const data = await getDonations(state.pId);
+
+  console.log(data);
+  setDonators(data);
+};
+
 function ReviewCampaignDetails() {
   return (
     <>
@@ -88,6 +96,7 @@ function ReviewCampaignDetails() {
           </Grid>
         </Grid>
       </Grid>
+
     </>
   );
 }

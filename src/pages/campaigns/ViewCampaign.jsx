@@ -262,12 +262,12 @@ function ViewCampaign() {
                   {campaignData.description}
                 </Typography>
 
-                {/* <Link
+                <Link
                   variant="body2"
                   href={`https://goerli.etherscan.io/address/${campaignData.id}`}
                 >
                   View on Goerli Etherscan
-                </Link> */}
+                </Link>
               </Stack>
             </Container>
             <ShowContributionDetails />

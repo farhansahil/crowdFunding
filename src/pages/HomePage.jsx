@@ -45,7 +45,7 @@ function HomePage() {
       console.log("fetched campaigns");
       console.log(campaignsList);
     };
-    
+
     // fetch the data..
     fetchData();
     return () => {
@@ -87,9 +87,7 @@ function HomePage() {
                   Top {campaignsList.length} recent campaigns..
                 </Typography>
               </Box>
-              <Button onClick={() => navigate("/active-campaigns")}>
-                View more
-              </Button>
+         
             </Stack>
             <Container sx={{ py: 2 }} fullWidth>
               {/* End hero unit */}

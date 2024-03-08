@@ -25,19 +25,29 @@ function ActiveCampaigns() {
   useEffect(() => {
     console.log("useEffect called");
     let ignore = false;
-    // fetch the campaigns..
+  
+    // fetch the campaigns
     const fetchData = async () => {
-      const response = await axios.get(api_url + "active-campaigns/10");
-      console.info(response.data);
-      if (!ignore && response.status == 200) setActiveCampaigns(response.data);
+      try {
+        const response = await axios.get(api_url + "active-campaigns/10");
+        console.info("Response status:", response.status);
+        console.info("Response data:", response.data);
+        
+        if (!ignore && response.status === 200) {
+          setActiveCampaigns(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
-
+  
     fetchData(); // call the function to fetch the data
-
+  
     return () => {
-      ignore = true; // to avoid rendering multiple times..
+      ignore = true; // to avoid rendering multiple times
     };
   }, []);
+  
 
   return (
     <>

@@ -8,7 +8,6 @@ import CreateCampaignWrapper from "./pages/campaigns/CreateCampaignWrapper";
 import FillCampaignDetails from "./pages/campaigns/FillCampaignDetails";
 import ReviewCampaignDetails from "./pages/campaigns/ReviewCampaignDetails";
 import HomePage from "./pages/HomePage";
-import ActiveCampaigns from "./pages/campaigns/ActiveCampaigns";
 import ViewCampaign from "./pages/campaigns/ViewCampaign";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -39,7 +38,6 @@ function App() {
                 // {/* </AuthProtectedRoute> */}
               }
             />
-            <Route path="/active-campaigns" element={<ActiveCampaigns />} />
             <Route path="/campaign/*" element={<ViewCampaign />} />
           </Routes>
       
