@@ -102,7 +102,7 @@ function CampaignCard(props) {
               </Typography>
             </Stack>
 
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h6" component="h2" sx={{ fontFamily: 'Poppins', lineHeight: 1.6 , textTransform: 'uppercase'}}>
               {title}
             </Typography>
             <Typography

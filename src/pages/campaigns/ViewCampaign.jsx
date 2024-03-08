@@ -309,18 +309,7 @@ function ViewCampaign() {
           )}
         </Container>
 
-        <Container>
-          <Typography variant="caption">
-           Donators 
-          </Typography>
-          {/* <Typography>{`${new Date(campaignData.deadline)}`}</Typography>
-          {(campaignData.campaignStatus == "EXPIRED" ||
-            campaignData.campaignStatus == "ABORTED") && (
-            <Typography>
-              <i>No contributions can be accepted now.</i>
-            </Typography>
-          )} */}
-        </Container>
+      
       </>
     );
   }

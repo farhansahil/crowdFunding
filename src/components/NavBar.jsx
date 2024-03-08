@@ -13,9 +13,13 @@ import {
   Grid,
   Menu,
   MenuItem,
-  IconButton ,
+  IconButton,
 } from "@mui/material";
-import { Add as AddIcon, AccountBalanceWallet as AccountBalanceWalletIcon, Storefront as StorefrontIcon } from '@mui/icons-material';
+import {
+  Add as AddIcon,
+  AccountBalanceWallet as AccountBalanceWalletIcon,
+  Storefront as StorefrontIcon,
+} from "@mui/icons-material";
 
 import EmailIcon from "@mui/icons-material/Email";
 import BadgeUnstyled from "@mui/base/BadgeUnstyled";
@@ -58,8 +62,6 @@ const UserActions = styled("div")(({ theme }) => ({
   },
 }));
 
-
-
 function NavBar() {
   // hooks ..
   const [profileMenuDisplayStatus, setProfileMenuDisplayStatus] =
@@ -72,10 +74,17 @@ function NavBar() {
 
   const wallet = useWallet();
 
-
-
   return (
-<AppBar position="sticky" sx={{ color: 'black', bgcolor: 'white', margin: '0 auto', maxWidth: '1200px', boxShadow: 'none' }}>
+    <AppBar
+      position="sticky"
+      sx={{
+        color: "black",
+        bgcolor: "white",
+        margin: "0 auto",
+        maxWidth: "1200px",
+        boxShadow: "none",
+      }}
+    >
       <StyledToolbar>
         <Typography
           variant="h6"
@@ -85,8 +94,8 @@ function NavBar() {
               sm: "block",
             },
             cursor: "pointer",
-            lineHeight: 1.5, 
-            letterSpacing: '0.2em',
+            lineHeight: 1.5,
+            letterSpacing: "0.2em",
           }}
           onClick={() => navigate("/")}
         >
@@ -130,16 +139,18 @@ function NavBar() {
             </>
           ) : (
             <>
-              <LoadingButton
-                variant="text"
-                loading={wallet.status === "connecting"}
-                loadingIndicator="Connecting..."
-                sx={{ mt: 3, mb: 2 }}
-                endIcon={<AccountBalanceWalletIcon />}
-                onClick={() => wallet.connect()}
-              >
-                Connect Wallet
-              </LoadingButton>
+              <span tabIndex={0}>
+                <LoadingButton
+                  variant="text"
+                  loading={wallet.status === "connecting"}
+                  loadingIndicator="Connecting..."
+                  sx={{ mt: 3, mb: 2, outline: "none" }} // Set outline to 'none' in the sx prop
+                  endIcon={<AccountBalanceWalletIcon />}
+                  onClick={() => wallet.connect()}
+                >
+                  Connect Wallet
+                </LoadingButton>
+              </span>
             </>
           )}
         </UserActions>
@@ -166,11 +177,8 @@ function NavBar() {
           </ListItemIcon>
           Disconnect Wallet
         </MenuItem>
-      
       </Menu>
     </AppBar>
-
-
   );
 }
 
