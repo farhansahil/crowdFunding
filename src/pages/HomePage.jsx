@@ -64,12 +64,12 @@ function HomePage() {
         justifyContent="center"
         fullWidth      >
         <Box sx={{ mb: 2 }}>
-          <Typography variant="h2" component="h1" gutterBottom>
+          <Typography variant="h3" sx={{ fontFamily: 'Poppins', lineHeight: 1.6 }} component="h1" gutterBottom>
             Welcome to CrowdFunding
           </Typography>
          
-          <Typography variant="body1">Welcome to our crowdfunding platform, where ideas flourish and dreams find wings. Whether you're an entrepreneur with a groundbreaking product, a visionary artist seeking support for your next masterpiece, or a passionate advocate for social change, our platform provides the perfect launchpad for your endeavors. With the power of collective contributions, we believe in democratizing funding, enabling individuals from all walks of life to support projects they believe in. Join our vibrant community today, and together, let's turn aspirations into achievements, one pledge at a time</Typography>
-        
+<Typography variant="body1" sx={{ fontFamily: 'Roboto', lineHeight: 1.6 }}>  Welcome to our crowdfunding platform, where ideas flourish and dreams find wings. Whether you're an entrepreneur with a groundbreaking product, a visionary artist seeking support for your next masterpiece, or a passionate advocate for social change, our platform provides the perfect launchpad for your endeavors. With the power of collective contributions, we believe in democratizing funding, enabling individuals from all walks of life to support projects they believe in. Join our vibrant community today, and together, let's turn aspirations into achievements, one pledge at a time
+</Typography>        
         </Box>
         <Box sx={{ mt: 4, mb: 2 }}>
           <Stack>
@@ -80,10 +80,10 @@ function HomePage() {
               // width={10}
             >
               <Box>
-                <Typography variant="h5">
+                <Typography variant="h5" sx={{ fontFamily: 'Poppins', lineHeight: 1.6 }}>
                   Take part in active campaigns..
                 </Typography>
-                <Typography variant="caption">
+                <Typography variant="caption" sx={{ fontFamily: 'Poppins', lineHeight: 1.6 }}>
                   Top {campaignsList.length} recent campaigns..
                 </Typography>
               </Box>

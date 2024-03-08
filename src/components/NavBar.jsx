@@ -62,7 +62,8 @@ const UserActions = styled("div")(({ theme }) => ({
 
 function NavBar() {
   // hooks ..
-
+  const [profileMenuDisplayStatus, setProfileMenuDisplayStatus] =
+    useState(false);
   // hooks..
   const [responseMsg, setResponseMsg] = React.useState(""); // to display error messages.
   const [showResponse, setShowResponse] = React.useState(false); // To know whether error occured. ⁉ why not use length of error message
@@ -74,7 +75,7 @@ function NavBar() {
 
 
   return (
-    <AppBar position="sticky" sx={{ color: "inherit", bgcolor: 'gray' }}>
+<AppBar position="sticky" sx={{ color: 'black', bgcolor: 'white', margin: '0 auto', maxWidth: '1200px', boxShadow: 'none' }}>
       <StyledToolbar>
         <Typography
           variant="h6"
@@ -82,13 +83,14 @@ function NavBar() {
             display: {
               xs: "none",
               sm: "block",
-              color: "#fff",
             },
             cursor: "pointer",
+            lineHeight: 1.5, 
+            letterSpacing: '0.2em',
           }}
           onClick={() => navigate("/")}
         >
-          CrowdFunding
+          CROWDFUNDING
         </Typography>
         <StorefrontIcon
           sx={{
@@ -109,7 +111,7 @@ function NavBar() {
               type="submit"
               fullWidth
               variant="outlined"
-              sx={{ mt: 3, mb: 2, color: "#fff" }}
+              sx={{ mt: 3, mb: 2 }}
               onClick={() => navigate("/create-campaign")}
             >
               Create Campaign
@@ -120,8 +122,8 @@ function NavBar() {
               <Button
                 variant="text"
                 endIcon={<ExpandMoreIcon />}
+                onClick={() => setProfileMenuDisplayStatus(true)}
                 color="primary"
-                sx={{ color: "#fff" }}
               >
                 {wallet.account.substr(0, 10) + "..."}
               </Button>
@@ -132,7 +134,7 @@ function NavBar() {
                 variant="text"
                 loading={wallet.status === "connecting"}
                 loadingIndicator="Connecting..."
-                sx={{ mt: 3, mb: 2, color: "#fff" }}
+                sx={{ mt: 3, mb: 2 }}
                 endIcon={<AccountBalanceWalletIcon />}
                 onClick={() => wallet.connect()}
               >
@@ -147,6 +149,8 @@ function NavBar() {
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         // anchorEl={anchorEl}
+        open={profileMenuDisplayStatus}
+        onClose={(e) => setProfileMenuDisplayStatus(false)}
         anchorOrigin={{
           vertical: "top",
           horizontal: "right",
