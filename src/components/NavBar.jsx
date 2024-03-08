@@ -27,7 +27,6 @@ import CreateIcon from "@mui/icons-material/Create";
 import { LoadingButton } from "@mui/lab";
 
 // service imports..
-import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -59,21 +58,11 @@ const UserActions = styled("div")(({ theme }) => ({
   },
 }));
 
-const UserProfile = styled("div")(({ theme }) => ({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  gap: "10px",
-  borderRadius: theme.shape.borderRadius,
-  [theme.breakpoints.up("sm")]: {
-    display: "none",
-  },
-}));
+
 
 function NavBar() {
   // hooks ..
-  const [profileMenuDisplayStatus, setProfileMenuDisplayStatus] =
-    useState(false);
+
   // hooks..
   const [responseMsg, setResponseMsg] = React.useState(""); // to display error messages.
   const [showResponse, setShowResponse] = React.useState(false); // To know whether error occured. ⁉ why not use length of error message
@@ -82,24 +71,7 @@ function NavBar() {
 
   const wallet = useWallet();
 
-  const { currentUserCredentials, signout } = useAuth();
 
-  const handleSignout = async () => {
-    // set the response activations to default.
-    setShowResponse(false);
-    setResponseMsg("");
-    setResponseSeverity("error"); // doesn't allowing to have empty, so kept this. Anyway, as showing is false, no worries.
-
-    // do signout.
-    try {
-      await signout();
-      navigate("/sign-in"); // navigate to sign-in page, after successful logout.
-    } catch (error) {
-      setShowResponse(true);
-      setResponseMsg(error.message);
-      setResponseSeverity("error");
-    }
-  };
 
   return (
     <AppBar position="sticky" sx={{ color: "inherit", bgcolor: 'gray' }}>
@@ -148,7 +120,6 @@ function NavBar() {
               <Button
                 variant="text"
                 endIcon={<ExpandMoreIcon />}
-                onClick={() => setProfileMenuDisplayStatus(true)}
                 color="primary"
                 sx={{ color: "#fff" }}
               >
@@ -176,8 +147,6 @@ function NavBar() {
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         // anchorEl={anchorEl}
-        open={profileMenuDisplayStatus}
-        onClose={(e) => setProfileMenuDisplayStatus(false)}
         anchorOrigin={{
           vertical: "top",
           horizontal: "right",
@@ -193,12 +162,7 @@ function NavBar() {
           </ListItemIcon>
           Disconnect Wallet
         </MenuItem>
-        <MenuItem onClick={() => navigate("/profile")}>
-          <ListItemIcon>
-            <PersonIcon fontSize="small" />
-          </ListItemIcon>
-          Profile
-        </MenuItem>
+      
       </Menu>
     </AppBar>
 
