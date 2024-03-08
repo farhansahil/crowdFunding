@@ -45,7 +45,7 @@ function HomePage() {
       console.log("fetched campaigns");
       console.log(campaignsList);
     };
-
+    
     // fetch the data..
     fetchData();
     return () => {
