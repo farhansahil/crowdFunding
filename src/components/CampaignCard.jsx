@@ -63,26 +63,26 @@ function CampaignCard(props) {
     <>
       <Card
         sx={{
-          width: 300, 
-    height: 400, 
+          width: 300,
+          height: 400,
           display: "flex",
           flexDirection: "column",
+          outline: "none",
         }}
         variant="outlined"
       >
         <CardMedia
           component="img"
-          sx={
-            {
-              height: 150
-            }
-          }
+          sx={{
+            height: 150,
+          }}
           image={bannerUrl}
         />
         <CardActionArea>
           <CardContent
             sx={{ flexGrow: 1 }}
             onClick={() => navigate(`/../campaign/${id}`)}
+            tabIndex={-1} // Add tabIndex={-1} to make the CardContent focusable but not tabbable
           >
             <Stack
               flexDirection="row"
@@ -100,7 +100,6 @@ function CampaignCard(props) {
               >
                 {campaignStatus}
               </Typography>
-            
             </Stack>
 
             <Typography gutterBottom variant="h5" component="h2">
